@@ -1,5 +1,5 @@
 <template>
-<div class="mu-appbar" :class="['mu-paper-' + zDepth ]">
+<div class="mu-appbar" :class="['mu-paper-' + zDepth ]" @click="handleClick">
   <div class="left">
     <slot name="left"></slot>
   </div>
@@ -28,6 +28,11 @@ export default {
     zDepth: {
       type: Number,
       default: 1
+    }
+  },
+  methods: {
+    handleClick (e) {
+      this.$emit('click', e)
     }
   }
 }
